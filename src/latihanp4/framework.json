@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Candi Borobudur",
+    "location": "Magelang",
+    "imageUrl": "/img/borobudur.jpg", 
+    "description": "Candi Buddha terbesar di dunia abad ke-9.",
+    "info": { "kategori": "Budaya", "tiket": 50000 },
+    "statistik": { "rating": 4.8, "ulasan": 1200 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 2,
+    "name": "Pantai Kuta",
+    "location": "Bali",
+    "imageUrl": "/img/kuta.jpg",
+    "description": "Pantai ikonik dengan matahari terbenam yang indah.",
+    "info": { "kategori": "Pantai", "tiket": 0 },
+    "statistik": { "rating": 4.5, "ulasan": 5000 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 3,
+    "name": "Gunung Bromo",
+    "location": "Jawa Timur",
+    "imageUrl": "/img/bromo.jpg",
+    "description": "Gunung berapi aktif dengan lautan pasir luas.",
+    "info": { "kategori": "Alam", "tiket": 35000 },
+    "statistik": { "rating": 4.9, "ulasan": 8900 },
+    "fitur": { "parkir": true, "wifi": false, "makan": false }
+  },
+  {
+    "id": 4,
+    "name": "Raja Ampat",
+    "location": "Papua",
+    "imageUrl": "/img/rajaampat.jpg",
+    "description": "Kepulauan dengan kekayaan bawah laut terbaik.",
+    "info": { "kategori": "Alam", "tiket": 500000 },
+    "statistik": { "rating": 5.0, "ulasan": 400 },
+    "fitur": { "parkir": false, "wifi": false, "makan": true }
+  },
+  {
+    "id": 5,
+    "name": "Danau Toba",
+    "location": "Sumatera Utara",
+    "imageUrl": "/img/danautoba.jpg",
+    "description": "Danau vulkanik terbesar di dunia.",
+    "info": { "kategori": "Alam", "tiket": 10000 },
+    "statistik": { "rating": 4.7, "ulasan": 3200 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 6,
+    "name": "Labuan Bajo",
+    "location": "NTT",
+    "imageUrl": "/img/labuanbajo.jpg",
+    "description": "Gerbang menuju Pulau Komodo.",
+    "info": { "kategori": "Alam", "tiket": 200000 },
+    "statistik": { "rating": 4.9, "ulasan": 2100 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 7,
+    "name": "Candi Prambanan",
+    "location": "Yogyakarta",
+    "imageUrl": "/img/prambanan.jpg",
+    "description": "Candi Hindu tercantik di Indonesia.",
+    "info": { "kategori": "Budaya", "tiket": 50000 },
+    "statistik": { "rating": 4.8, "ulasan": 4500 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 8,
+    "name": "Tanah Lot",
+    "location": "Bali",
+    "imageUrl": "/img/tanahlot.jpg",
+    "description": "Pura di atas batu karang besar.",
+    "info": { "kategori": "Budaya", "tiket": 20000 },
+    "statistik": { "rating": 4.6, "ulasan": 6000 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 9,
+    "name": "Nusa Penida",
+    "location": "Bali",
+    "imageUrl": "/img/nusapenida.jpg",
+    "description": "Tebing ikonik dengan laut biru jernih.",
+    "info": { "kategori": "Pantai", "tiket": 15000 },
+    "statistik": { "rating": 4.7, "ulasan": 3800 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 10,
+    "name": "Kawah Putih",
+    "location": "Bandung",
+    "imageUrl": "/img/kawahputih.jpg",
+    "description": "Danau belerang dengan tanah putih.",
+    "info": { "kategori": "Alam", "tiket": 25000 },
+    "statistik": { "rating": 4.4, "ulasan": 5500 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 11,
+    "name": "Lombok Gili",
+    "location": "NTB",
+    "imageUrl": "/img/lombokgili.jpg",
+    "description": "Pulau tropis bebas kendaraan bermotor.",
+    "info": { "kategori": "Pantai", "tiket": 0 },
+    "statistik": { "rating": 4.8, "ulasan": 2900 },
+    "fitur": { "parkir": false, "wifi": true, "makan": true }
+  },
+  {
+    "id": 12,
+    "name": "Tana Toraja",
+    "location": "Sulawesi",
+    "imageUrl": "/img/tanatoraja.jpg",
+    "description": "Budaya pemakaman unik dan rumah adat Tongkonan.",
+    "info": { "kategori": "Budaya", "tiket": 30000 },
+    "statistik": { "rating": 4.7, "ulasan": 1500 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 13,
+    "name": "Museum Angkut",
+    "location": "Malang",
+    "imageUrl": "/img/museumangkut.jpg",
+    "description": "Museum transportasi dengan koleksi mobil klasik.",
+    "info": { "kategori": "Edukasi", "tiket": 100000 },
+    "statistik": { "rating": 4.6, "ulasan": 7800 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 14,
+    "name": "Taman Mini",
+    "location": "Jakarta",
+    "imageUrl": "/img/tamanminireal.jpg",
+    "description": "Miniatur budaya dan rumah adat seluruh Indonesia.",
+    "info": { "kategori": "Edukasi", "tiket": 25000 },
+    "statistik": { "rating": 4.5, "ulasan": 12000 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 15,
+    "name": "Wae Rebo",
+    "location": "Flores",
+    "imageUrl": "/img/waerebo.jpg",
+    "description": "Desa adat terpencil di atas awan.",
+    "info": { "kategori": "Budaya", "tiket": 200000 },
+    "statistik": { "rating": 4.9, "ulasan": 800 },
+    "fitur": { "parkir": false, "wifi": false, "makan": true }
+  },
+  {
+    "id": 16,
+    "name": "Gunung Rinjani",
+    "location": "Lombok",
+    "imageUrl": "/img/rinjani.jpg",
+    "description": "Gunung tertinggi kedua di Indonesia.",
+    "info": { "kategori": "Alam", "tiket": 150000 },
+    "statistik": { "rating": 4.9, "ulasan": 3400 },
+    "fitur": { "parkir": true, "wifi": false, "makan": false }
+  },
+  {
+    "id": 17,
+    "name": "Pantai Pink",
+    "location": "Komodo",
+    "imageUrl": "/img/pantaipink.jpg",
+    "description": "Pantai dengan pasir berwarna merah muda.",
+    "info": { "kategori": "Pantai", "tiket": 50000 },
+    "statistik": { "rating": 4.8, "ulasan": 1200 },
+    "fitur": { "parkir": false, "wifi": false, "makan": false }
+  },
+  {
+    "id": 18,
+    "name": "Jatim Park",
+    "location": "Batu",
+    "imageUrl": "/img/jatimpark.jpg",
+    "description": "Taman rekreasi keluarga dan edukasi satwa.",
+    "info": { "kategori": "Edukasi", "tiket": 120000 },
+    "statistik": { "rating": 4.7, "ulasan": 9500 },
+    "fitur": { "parkir": true, "wifi": true, "makan": true }
+  },
+  {
+    "id": 19,
+    "name": "Goa Jomblang",
+    "location": "Yogyakarta",
+    "imageUrl": "/img/goajomblang.jpg",
+    "description": "Cahaya surga dari lubang vertikal gua.",
+    "info": { "kategori": "Alam", "tiket": 500000 },
+    "statistik": { "rating": 4.8, "ulasan": 600 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  },
+  {
+    "id": 20,
+    "name": "Farmhouse Lembang",
+    "location": "Bandung",
+    "imageUrl": "/img/farmhouselembang.jpg",
+    "description": "Wisata tematik bergaya pedesaan Eropa.",
+    "info": { "kategori": "Edukasi", "tiket": 30000 },
+    "statistik": { "rating": 4.3, "ulasan": 15000 },
+    "fitur": { "parkir": true, "wifi": false, "makan": true }
+  }
+]

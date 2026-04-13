@@ -1,0 +1,662 @@
+/* ============================================================
+   custom.css — JUJUTSU KAISEN Portfolio
+   Tema: Cinematic Dark / Cursed Energy / Domain Expansion
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --void:        #000005;
+  --abyss:       #04020f;
+  --deep:        #080318;
+  --surface:     #0e0526;
+  --glass:       rgba(255,255,255,0.028);
+  --glass-hover: rgba(255,255,255,0.055);
+
+  --curse:       #6d28d9;
+  --curse-mid:   #8b5cf6;
+  --curse-light: #c4b5fd;
+  --infinity:    #ddd6fe;
+  --blood:       #be123c;
+  --hollow:      #0ea5e9;
+  --gold-eye:    #d97706;
+
+  --on-dark:     #ede9fe;
+  --muted:       #6b7280;
+  --subtle:      rgba(196,181,253,0.15);
+
+  --ff-title: 'Bebas Neue', sans-serif;
+  --ff-jp:    'Noto Serif JP', serif;
+  --ff-mono:  'Space Mono', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--ff-mono);
+  background: var(--void);
+  color: var(--on-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
+.portfolio-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 0 60px;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(109,40,217,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 20%,  rgba(14,165,233,.10) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(190,18,60,.12)  0%, transparent 50%),
+    var(--abyss);
+  isolation: isolate;
+}
+
+/* Grain overlay */
+.portfolio-wrapper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .6;
+}
+
+/* Scrolling diagonal energy lines */
+.portfolio-wrapper::after {
+  content: '';
+  position: fixed;
+  inset: -100%;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent 0px,
+    transparent 80px,
+    rgba(109,40,217,.025) 80px,
+    rgba(109,40,217,.025) 81px
+  );
+  animation: lineScroll 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes lineScroll {
+  to { transform: translateX(81px); }
+}
+
+/* ── CONTAINER ───────────────────────────────────────────── */
+.portfolio-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── ① HERO SECTION ─────────────────────────────────────── */
+.header-section {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px 30px 48px;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Big kanji backdrop */
+.header-section::before {
+  content: '呪';
+  position: absolute;
+  font-family: var(--ff-jp);
+  font-size: clamp(240px, 40vw, 400px);
+  font-weight: 900;
+  color: rgba(109,40,217,.07);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -52%);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: -20px;
+}
+
+/* Horizontal scan line at bottom */
+.header-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--blood) 20%,
+    var(--curse-mid) 50%,
+    var(--hollow) 80%,
+    transparent 100%
+  );
+}
+
+/* ── FOTO PROFILE ────────────────────────────────────────── */
+.foto-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 28px;
+  z-index: 2;
+}
+
+/* Rotating ring */
+.foto-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(139,92,246,.4);
+  animation: spinRing 12s linear infinite;
+}
+
+/* Outer glow ring */
+.foto-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(109,40,217,.2);
+  animation: spinRing 20s linear infinite reverse;
+}
+
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
+/* Style untuk gambar profile */
+.foto-profile {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(139,92,246,.5);
+  box-shadow:
+    inset 0 0 30px rgba(109,40,217,.3),
+    0 0 40px rgba(109,40,217,.35),
+    0 0 80px rgba(109,40,217,.15);
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Fallback placeholder jika gambar gagal */
+.foto-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2e1065, #0a0118);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 54px;
+  border: 2px solid rgba(139,92,246,.5);
+  box-shadow:
+    inset 0 0 30px rgba(109,40,217,.3),
+    0 0 40px rgba(109,40,217,.35),
+    0 0 80px rgba(109,40,217,.15);
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,100% { 
+    box-shadow: inset 0 0 30px rgba(109,40,217,.3), 
+                0 0 40px rgba(109,40,217,.35), 
+                0 0 80px rgba(109,40,217,.15); 
+  }
+  50% { 
+    box-shadow: inset 0 0 40px rgba(139,92,246,.4), 
+                0 0 60px rgba(139,92,246,.55), 
+                0 0 120px rgba(109,40,217,.25); 
+  }
+}
+
+.status-badge {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  width: 16px; height: 16px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2.5px solid var(--abyss);
+  box-shadow: 0 0 12px rgba(34,197,94,.7);
+  animation: blink 2.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: .4; }
+}
+
+/* ── HERO TEXT ───────────────────────────────────────────── */
+.hero-name {
+  font-family: var(--ff-title);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 6px;
+  line-height: .95;
+  background: linear-gradient(160deg,
+    #fff 0%,
+    var(--curse-light) 35%,
+    var(--infinity) 60%,
+    var(--hollow) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  animation: heroReveal 1s var(--ease-out-expo) .2s both;
+}
+
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(24px) skewX(-4deg); }
+  to   { opacity: 1; transform: translateY(0)    skewX(0);     }
+}
+
+.hero-nim {
+  font-family: var(--ff-mono);
+  font-size: .7rem;
+  letter-spacing: 5px;
+  color: var(--curse-mid);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  animation: heroReveal 1s var(--ease-out-expo) .35s both;
+}
+
+.hero-tagline {
+  font-family: var(--ff-mono);
+  font-size: .8rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  animation: heroReveal 1s var(--ease-out-expo) .45s both;
+}
+
+/* ── MOTO BAND ───────────────────────────────────────────── */
+.moto-card {
+  position: relative;
+  padding: 40px 32px;
+  margin-bottom: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(109,40,217,.2);
+  border-bottom: 1px solid rgba(109,40,217,.2);
+  animation: fadeUp 1s var(--ease-out-expo) .5s both;
+}
+
+.moto-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    rgba(109,40,217,.12) 0%,
+    transparent 40%,
+    rgba(14,165,233,.06) 100%
+  );
+  pointer-events: none;
+}
+
+/* Vertical kanji strip */
+.moto-card::after {
+  content: '術廻戦';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--ff-jp);
+  font-size: 13px;
+  writing-mode: vertical-rl;
+  letter-spacing: 6px;
+  color: rgba(139,92,246,.15);
+  pointer-events: none;
+  user-select: none;
+}
+
+.moto-text {
+  font-family: var(--ff-jp);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-style: italic;
+  color: var(--on-dark);
+  line-height: 1.9;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.moto-text::before {
+  content: '"';
+  font-family: var(--ff-title);
+  font-size: 5rem;
+  color: var(--curse-mid);
+  opacity: .4;
+  position: absolute;
+  top: -20px; left: -10px;
+  line-height: 1;
+}
+
+.moto-source {
+  font-family: var(--ff-mono);
+  font-size: .65rem;
+  color: var(--curse-mid);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── GRID SECTION ────────────────────────────────────────── */
+.biodata-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(109,40,217,.15);
+}
+
+/* ── CARDS ───────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--glass);
+  padding: 32px 28px;
+  overflow: hidden;
+  transition: background .3s, transform .3s var(--ease-out-expo);
+  border-right: 1px solid rgba(109,40,217,.12);
+  border-bottom: 1px solid rgba(109,40,217,.12);
+  animation: fadeUp .8s var(--ease-out-expo) both;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: linear-gradient(180deg, var(--curse-mid), var(--hollow));
+  transition: height .4s var(--ease-out-expo);
+}
+
+.card:hover {
+  background: var(--glass-hover);
+  transform: translateY(-3px);
+}
+
+.card:hover::before { height: 100%; }
+
+.card-icon {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  opacity: .85;
+}
+
+.card-label {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--curse-mid);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.card-value {
+  font-family: var(--ff-mono);
+  font-size: .88rem;
+  color: var(--on-dark);
+  line-height: 1.6;
+}
+
+.card-title {
+  font-family: var(--ff-title);
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: var(--on-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139,92,246,.3), transparent);
+}
+
+/* ── INFO DASAR — FULL WIDTH ROW ─────────────────────────── */
+.card.full {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.card.full .info-cell {
+  padding: 28px 28px;
+  border-right: 1px solid rgba(109,40,217,.12);
+  transition: background .3s;
+}
+
+.card.full .info-cell:last-child { border-right: none; }
+.card.full .info-cell:hover { background: var(--glass-hover); }
+
+/* ── SKILL BARS ──────────────────────────────────────────── */
+.skill-item { margin-bottom: 16px; }
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.skill-name {
+  font-family: var(--ff-mono);
+  font-size: .78rem;
+  color: var(--on-dark);
+  letter-spacing: 1px;
+}
+
+.skill-pct {
+  font-family: var(--ff-title);
+  font-size: 1rem;
+  color: var(--curse-light);
+  letter-spacing: 1px;
+}
+
+.skill-bar {
+  height: 3px;
+  background: rgba(255,255,255,.05);
+  position: relative;
+  overflow: visible;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blood) 0%, var(--curse-mid) 50%, var(--hollow) 100%);
+  position: relative;
+  animation: fillBar 1.8s var(--ease-out-expo) both;
+  box-shadow: 0 0 12px rgba(139,92,246,.6);
+}
+
+/* Glowing dot at tip */
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px; top: -3px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--curse-light);
+  box-shadow: 0 0 10px var(--curse-mid);
+}
+
+@keyframes fillBar {
+  from { width: 0 !important; }
+}
+
+/* ── KONTAK ──────────────────────────────────────────────── */
+.kontak-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(109,40,217,.08);
+  transition: padding-left .2s;
+}
+
+.kontak-item:last-child { border-bottom: none; }
+.kontak-item:hover { padding-left: 4px; }
+
+.kontak-icon {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(139,92,246,.25);
+  background: rgba(109,40,217,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+}
+
+.kontak-label {
+  font-family: var(--ff-mono);
+  font-size: .56rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--curse-mid);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.kontak-text {
+  font-family: var(--ff-mono);
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+/* ── HOBI TAGS ───────────────────────────────────────────── */
+.hobi-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.hobi-tag {
+  font-family: var(--ff-mono);
+  font-size: .72rem;
+  padding: 6px 14px;
+  border: 1px solid rgba(139,92,246,.25);
+  background: rgba(109,40,217,.08);
+  color: var(--curse-light);
+  cursor: default;
+  letter-spacing: 1px;
+  clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition: all .25s var(--ease-out-expo);
+  position: relative;
+}
+
+.hobi-tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--curse) 0%, var(--hollow) 100%);
+  opacity: 0;
+  transition: opacity .25s;
+  z-index: -1;
+}
+
+.hobi-tag:hover {
+  color: #fff;
+  border-color: var(--curse-mid);
+  box-shadow: 0 0 20px rgba(109,40,217,.4);
+  transform: skewX(-4deg);
+}
+
+.hobi-tag:hover::before { opacity: 1; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.footer-section {
+  text-align: center;
+  padding: 36px 20px 10px;
+  font-family: var(--ff-mono);
+  font-size: .6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(107,114,128,.5);
+  position: relative;
+}
+
+.footer-section::before {
+  content: '— 術式展開 —';
+  display: block;
+  font-family: var(--ff-jp);
+  font-size: 10px;
+  color: rgba(139,92,246,.25);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.footer-section span { color: var(--curse-mid); }
+
+/* ── ANIMATION UTILS ─────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:nth-child(1) { animation-delay: .55s; }
+.card:nth-child(2) { animation-delay: .65s; }
+.card:nth-child(3) { animation-delay: .75s; }
+.card:nth-child(4) { animation-delay: .60s; }
+.card:nth-child(5) { animation-delay: .70s; }
+.card:nth-child(6) { animation-delay: .80s; }
+
+/* ── SECTION DIVIDER ─────────────────────────────────────── */
+.curse-divider {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.curse-divider::before,
+.curse-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(109,40,217,.3));
+}
+
+.curse-divider::after {
+  background: linear-gradient(90deg, rgba(109,40,217,.3), transparent);
+}
+
+.curse-divider span {
+  font-family: var(--ff-jp);
+  font-size: 11px;
+  color: rgba(139,92,246,.35);
+  letter-spacing: 4px;
+  white-space: nowrap;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .biodata-grid { grid-template-columns: 1fr; }
+  .card.full    { grid-template-columns: 1fr; }
+  .hero-name    { font-size: 3rem; }
+  .moto-text    { font-size: 1rem; }
+  .moto-card::after { display: none; }
+}
