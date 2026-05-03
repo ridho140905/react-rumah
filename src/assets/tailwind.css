@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+body {
+    /* Pakai Poppins atau Barlow, sesuaikan selera. Saya set default ke font-sans bawaan atau Barlow */
+    @apply font-barlow text-gray-800 bg-latar; 
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@theme {
+    Konfigurasi Font
+    font-barlow: "Barlow", sans-serif;
+    font-poppins: "Poppins", sans-serif;          
+
+    /* Konfigurasi Warna Furni House */
+    color-latar: #f8f9fc;         /* Background abu-abu kebiruan super terang khas dashboard modern */
+    color-teks: #1f2937;          /* Warna teks utama (gray-800) */
+    color-teks-samping: #6b7280;  /* Warna teks sekunder/subtitle (gray-500) */
+-color-garis: #f3f4f6;         /* Warna border tipis (gray-100) */
+    
+    /* Warna Utama & Aksen Baru */
+    color-ungu: #9333ea;          /* Pengganti hijau, ungu utama (purple-600) */
+    color-ungu-muda: #f3e8ff;     /* Background tipis ungu (purple-100) */
+    color-oranye: #fb923c;        /* Warna aksen logo & icon chart (orange-400) */
+    
+    /* Warna Status (Tetap disimpan untuk label Available/Sold Out/dll) */
+    color-hijau: #22c55e;         
+    color-merah: #ef4444;         
+    color-biru: #3b82f6;          
+    color-kuning: #eab308;        
+}

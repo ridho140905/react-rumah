@@ -1,121 +1,97 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { Suspense } from "react";
+import "./assets/tailwind.css";
+import { Route, Routes } from "react-router-dom";
+import Loading from "./components/Loading";
+import Sale from "./pages/Sale";
+import Review from "./pages/Review";
+
+// Lazy imports disesuaikan dengan kebutuhan Furni House
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Product = React.lazy(() => import("./pages/Product"));
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
+const Login = React.lazy(() => import("./pages/auth/Login"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+
+// 1. TAMBAHKAN LAZY IMPORT UNTUK CHAT DAN ANALYTIC DI SINI
+const Analytic = React.lazy(() => import("./pages/Analytic"));
+const Chat = React.lazy(() => import("./pages/Chat"));
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          {/* Rute Halaman Utama */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/product" element={<Product />} />
+            
+            {/* 2. TAMBAHKAN RUTE CHAT DAN ANALYTIC DI DALAM MAINLAYOUT */}
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/analytic" element={<Analytic />} />
+            <Route path="/sale" element={<Sale />} />
+            <Route path="/review" element={<Review />} />
 
-      <div className="ticks"></div>
+            {/* RUTE ERROR (400, 401, 403) bawaan praktikum kamu */}
+            <Route
+              path="/error-400"
+              element={
+                <ErrorPage
+                  kodeError="400"
+                  deskripsiError="Bad Request! Ada yang salah dengan permintaanmu."
+                  gambarError="https://illustrations.popsy.co/blue/crashed-error.svg"
+                />
+              }
+            />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            <Route
+              path="/error-401"
+              element={
+                <ErrorPage
+                  kodeError="401"
+                  deskripsiError="Unauthorized! Kamu harus login dulu."
+                  gambarError="https://illustrations.popsy.co/blue/web-design.svg"
+                />
+              }
+            />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+            <Route
+              path="/error-403"
+              element={
+                <ErrorPage
+                  kodeError="403"
+                  deskripsiError="Forbidden! Akses ditolak masuk ke halaman ini."
+                  gambarError="https://illustrations.popsy.co/blue/surreal-hourglass.svg"
+                />
+              }
+            />
+
+            {/* Rute * (Bintang) untuk 404 Not Found. Taruh di paling bawah! */}
+            <Route
+              path="*"
+              element={
+                <ErrorPage
+                  kodeError="404"
+                  deskripsiError="Halaman Tidak Ditemukan. Sepertinya link yang kamu tuju sudah pindah atau tidak ada."
+                  gambarError="https://illustrations.popsy.co/blue/web-design.svg"
+                />
+              }
+            />
+          </Route>
+
+          {/* Rute Autentikasi */}
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forgot" element={<Forgot />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
