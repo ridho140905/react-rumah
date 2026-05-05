@@ -1,63 +1,55 @@
-import { NavLink } from "react-router-dom";
-import { MdDashboard, MdChatBubbleOutline, MdShowChart, MdOutlineLocalOffer, MdStarBorder, MdOutlineInventory2 } from "react-icons/md";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { 
+  Home, 
+  Mail, 
+  Phone, 
+  LayoutGrid, 
+  BookOpen, 
+  DollarSign, 
+  Scissors 
+} from 'lucide-react';
 
-export default function Sidebar() {
-  const menuClass = ({ isActive }) =>
-    `flex cursor-pointer items-center rounded-xl p-3 space-x-3 font-medium transition-all ${
-      isActive
-        ? "text-purple-600 bg-purple-100 shadow-sm"
-        : "text-gray-500 hover:text-purple-600 hover:bg-purple-50"
-    }`;
+const Sidebar = () => {
+  // Daftar menu untuk mempermudah render
+  const menuItems = [
+    { icon: Home, path: '/' },
+    { icon: Mail, path: '/mail' },
+    { icon: Phone, path: '/phone' },
+    { icon: LayoutGrid, path: '/product' },
+    { icon: BookOpen, path: '/review' },
+    { icon: DollarSign, path: '/sale' },
+    { icon: Scissors, path: '/tools' },
+  ];
 
   return (
-    <div id="sidebar" className="flex min-h-screen w-64 flex-col bg-white p-6 border-r border-gray-100">
-      {/* Logo */}
-      <div className="flex items-center mb-10 pl-2">
-        <div className="w-6 h-6 bg-orange-400 rounded-t-full rounded-br-full mr-3"></div>
-        <span className="font-bold text-2xl text-gray-800">
-          Furni <span className="text-orange-400">House</span>
-        </span>
+    <aside className="w-24 min-h-screen bg-white border-r border-gray-100 flex flex-col items-center py-6">
+      {/* Logo Area */}
+      <div className="w-12 h-12 bg-[#5D5FEF] rounded-xl flex items-center justify-center mb-10 text-white font-bold">
+        {/* Anggap ini logo M */}
+        M
       </div>
 
-      {/* List Menu */}
-      <ul className="space-y-2 flex-1">
-        <li>
-          <NavLink to="/" className={menuClass}>
-            <MdDashboard className="text-xl" />
-            <span>Overview</span>
+      {/* Menu Icons */}
+      <nav className="flex flex-col gap-6 w-full">
+        {menuItems.map((item, index) => (
+          <NavLink
+            key={index}
+            to={item.path}
+            className={({ isActive }) =>
+              `flex justify-center items-center w-full py-3 border-r-4 transition-all ${
+                isActive 
+                  ? 'border-[#5D5FEF] text-[#5D5FEF]' 
+                  : 'border-transparent text-gray-400 hover:text-gray-600'
+              }`
+            }
+          >
+            <item.icon size={24} />
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/chat" className={menuClass}>
-            <MdChatBubbleOutline className="text-xl" />
-            <span>Chat</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/analytic" className={menuClass}>
-            <MdShowChart className="text-xl" />
-            <span>Analytic</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sale" className={menuClass}>
-            <MdOutlineLocalOffer className="text-xl" />
-            <span>Sale</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/review" className={menuClass}>
-            <MdStarBorder className="text-xl" />
-            <span>Review</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/product" className={menuClass}>
-            <MdOutlineInventory2 className="text-xl" />
-            <span>Product</span>
-          </NavLink>
-        </li>
-      </ul>
-    </div>
+        ))}
+      </nav>
+    </aside>
   );
-}
+};
+
+export default Sidebar;
