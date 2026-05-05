@@ -16,24 +16,24 @@ body {
 }
 
 @theme {
-    Konfigurasi Font
-    font-barlow: "Barlow", sans-serif;
-    font-poppins: "Poppins", sans-serif;          
+    /* Gunakan CSS Custom Properties diawali dengan '--' */
+    --font-barlow: "Barlow", sans-serif;
+    --font-poppins: "Poppins", sans-serif;            
 
     /* Konfigurasi Warna Furni House */
-    color-latar: #f8f9fc;         /* Background abu-abu kebiruan super terang khas dashboard modern */
-    color-teks: #1f2937;          /* Warna teks utama (gray-800) */
-    color-teks-samping: #6b7280;  /* Warna teks sekunder/subtitle (gray-500) */
--color-garis: #f3f4f6;         /* Warna border tipis (gray-100) */
+    --color-latar: #f8f9fc;        /* Background abu-abu kebiruan super terang khas dashboard modern */
+    --color-teks: #1f2937;         /* Warna teks utama (gray-800) */
+    --color-teks-samping: #6b7280; /* Warna teks sekunder/subtitle (gray-500) */
+    --color-garis: #f3f4f6;        /* Warna border tipis (gray-100) */
     
     /* Warna Utama & Aksen Baru */
-    color-ungu: #9333ea;          /* Pengganti hijau, ungu utama (purple-600) */
-    color-ungu-muda: #f3e8ff;     /* Background tipis ungu (purple-100) */
-    color-oranye: #fb923c;        /* Warna aksen logo & icon chart (orange-400) */
+    --color-ungu: #9333ea;         /* Pengganti hijau, ungu utama (purple-600) */
+    --color-ungu-muda: #f3e8ff;    /* Background tipis ungu (purple-100) */
+    --color-oranye: #fb923c;       /* Warna aksen logo & icon chart (orange-400) */
     
     /* Warna Status (Tetap disimpan untuk label Available/Sold Out/dll) */
-    color-hijau: #22c55e;         
-    color-merah: #ef4444;         
-    color-biru: #3b82f6;          
-    color-kuning: #eab308;        
+    --color-hijau: #22c55e;        
+    --color-merah: #ef4444;        
+    --color-biru: #3b82f6;         
+    --color-kuning: #eab308;       
 }
