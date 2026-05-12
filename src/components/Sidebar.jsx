@@ -3,51 +3,86 @@ import { NavLink } from 'react-router-dom';
 import { 
   Home, 
   Mail, 
-  Phone, 
-  LayoutGrid, 
-  BookOpen, 
-  DollarSign, 
-  Scissors 
+  Smartphone,
+  Coins,
+  LayoutGrid,
+  BookMarked,
+  BadgeDollarSign,
+  CreditCard,
 } from 'lucide-react';
 
-const Sidebar = () => {
-  // Daftar menu untuk mempermudah render
-  const menuItems = [
-    { icon: Home, path: '/' },
-    { icon: Mail, path: '/mail' },
-    { icon: Phone, path: '/phone' },
-    { icon: LayoutGrid, path: '/product' },
-    { icon: BookOpen, path: '/review' },
-    { icon: DollarSign, path: '/sale' },
-    { icon: Scissors, path: '/tools' },
-  ];
+import LogoImage from '../assets/logoproject.png'; 
 
+const EXACT_THEME_COLOR = "#4F45B6";
+const ACTIVE_BG_COLOR = "#F4F2FF";
+const INACTIVE_COLOR = "#D1D5DB";
+
+const menuItems = [
+  { icon: Home,            path: '/' },
+  { icon: Mail,            path: '/mail' },
+  { icon: Smartphone,      path: '/contact' }, 
+  { icon: Coins,           path: '/coins' },
+  { icon: LayoutGrid,      path: '/grid' },
+  { icon: BookMarked,      path: '/bookmark' },
+  { icon: BadgeDollarSign, path: '/finance' },
+  { icon: CreditCard,      path: '/payment' },
+];
+
+const Sidebar = () => {
   return (
-    <aside className="w-24 min-h-screen bg-white border-r border-gray-100 flex flex-col items-center py-6">
-      {/* Logo Area */}
-      <div className="w-12 h-12 bg-[#5D5FEF] rounded-xl flex items-center justify-center mb-10 text-white font-bold">
-        {/* Anggap ini logo M */}
-        M
+    <aside className="w-[104px] min-h-screen bg-white border-r border-gray-100 flex flex-col items-center py-8 font-['Cairo'] shrink-0 relative z-10">
+      
+      {/* Logo */}
+      <div className="w-[52px] h-[52px] mb-10">
+        <img 
+          src={LogoImage} 
+          alt="Logo" 
+          className="w-full h-full object-cover rounded-xl shadow-sm" 
+        />
       </div>
 
       {/* Menu Icons */}
-      <nav className="flex flex-col gap-6 w-full">
+      <nav className="flex flex-col w-full gap-2">
         {menuItems.map((item, index) => (
           <NavLink
             key={index}
             to={item.path}
-            className={({ isActive }) =>
-              `flex justify-center items-center w-full py-3 border-r-4 transition-all ${
-                isActive 
-                  ? 'border-[#5D5FEF] text-[#5D5FEF]' 
-                  : 'border-transparent text-gray-400 hover:text-gray-600'
-              }`
-            }
+            end={item.path === '/'}
+            className="w-full relative flex items-center justify-center h-14"
           >
-            <item.icon size={24} />
+            {({ isActive }) => (
+              <>
+                <div 
+                  className="w-[48px] h-[48px] rounded-xl flex items-center justify-center transition-all duration-200"
+                  style={{ 
+                    backgroundColor: isActive ? ACTIVE_BG_COLOR : 'transparent' 
+                  }}
+                >
+                  <item.icon 
+                    size={22}
+                    strokeWidth={isActive ? 2 : 1.8}
+                    // Filled solid saat aktif
+                    fill={isActive ? EXACT_THEME_COLOR : 'none'}
+                    style={{ 
+                      color: isActive ? EXACT_THEME_COLOR : INACTIVE_COLOR,
+                      transition: 'color 0.2s ease, fill 0.2s ease'
+                    }} 
+                  />
+                </div>
+                
+                {/* Garis indikator kanan */}
+                {isActive && (
+                  <div 
+                    className="absolute right-0 w-[5px] h-8 rounded-l-full"
+                    style={{ backgroundColor: EXACT_THEME_COLOR }}
+                  />
+                )}
+              </>
+            )}
           </NavLink>
         ))}
       </nav>
+      
     </aside>
   );
 };

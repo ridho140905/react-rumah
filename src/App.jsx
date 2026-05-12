@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import "./assets/tailwind.css";
 import { Route, Routes } from "react-router-dom";
 import Loading from "./components/Loading";
-import Sale from "./pages/Sale";
 import Review from "./pages/Review";
 
 // Lazy imports disesuaikan dengan kebutuhan Furni House
@@ -14,6 +13,7 @@ const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+const Sale = React.lazy(() => import("./pages/Sale"));
 
 // 1. TAMBAHKAN LAZY IMPORT UNTUK CHAT DAN ANALYTIC DI SINI
 const Analytic = React.lazy(() => import("./pages/Analytic"));
