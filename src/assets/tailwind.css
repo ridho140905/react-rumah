@@ -1,19 +1,13 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap');
 
 body {
     /* Pakai Poppins atau Barlow, sesuaikan selera. Saya set default ke font-sans bawaan atau Barlow */
     @apply font-barlow text-gray-800 bg-latar; 
 }
 
-@font-face {
-    font-family: 'Barlow';
-    src: url('/fonts/Barlow-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
-}
+/* Font-face lokal dihapus, gunakan Google Fonts di atas */
 
 @theme {
     /* Gunakan CSS Custom Properties diawali dengan '--' */
