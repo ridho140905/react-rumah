@@ -18,6 +18,7 @@ const Sale = React.lazy(() => import("./pages/Sale"));
 // 1. TAMBAHKAN LAZY IMPORT UNTUK CHAT DAN ANALYTIC DI SINI
 const Analytic = React.lazy(() => import("./pages/Analytic"));
 const Chat = React.lazy(() => import("./pages/Chat"));
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail")); // Tambahkan ini
 
 function App() {
   return (
@@ -28,8 +29,7 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/product" element={<Product />} />
-            
-            {/* 2. TAMBAHKAN RUTE CHAT DAN ANALYTIC DI DALAM MAINLAYOUT */}
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/analytic" element={<Analytic />} />
             <Route path="/sale" element={<Sale />} />

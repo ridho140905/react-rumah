@@ -17,14 +17,15 @@ const EXACT_THEME_COLOR = "#4F45B6";
 const ACTIVE_BG_COLOR = "#F4F2FF";
 const INACTIVE_COLOR = "#D1D5DB";
 
+// BAGIAN INI YANG KITA SESUAIKAN DENGAN App.jsx KAMU
 const menuItems = [
-  { icon: Home,            path: '/' },
-  { icon: Mail,            path: '/mail' },
-  { icon: Smartphone,      path: '/contact' }, 
-  { icon: Coins,           path: '/coins' },
-  { icon: LayoutGrid,      path: '/grid' },
-  { icon: BookMarked,      path: '/bookmark' },
-  { icon: BadgeDollarSign, path: '/finance' },
+  { icon: Home,            path: '/' },          
+  { icon: Mail,            path: '/chat' },      
+  { icon: Smartphone,      path: '/product' },   // UBAH INI JADI /product agar saat ikon hp diklik, tabel furniture muncul
+  { icon: Coins,           path: '/sale' },      
+  { icon: LayoutGrid,      path: '/product' },   // Ikon kotak juga ke /product
+  { icon: BookMarked,      path: '/analytic' },  
+  { icon: BadgeDollarSign, path: '/review' },    
   { icon: CreditCard,      path: '/payment' },
 ];
 
@@ -61,7 +62,6 @@ const Sidebar = () => {
                   <item.icon 
                     size={22}
                     strokeWidth={isActive ? 2 : 1.8}
-                    // Filled solid saat aktif
                     fill={isActive ? EXACT_THEME_COLOR : 'none'}
                     style={{ 
                       color: isActive ? EXACT_THEME_COLOR : INACTIVE_COLOR,
