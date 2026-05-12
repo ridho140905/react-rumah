@@ -3,10 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
-import LoginInput from "../../components/login/LoginInput";
-import LoginButton from "../../components/login/LoginButton";
-import LoginDivider from "../../components/login/LoginDivider";
-import SocialLoginButton from "../../components/login/SocialLoginButton";
+import LoginInput from "../../components/login/Logininput";
+import LoginButton from "../../components/login/Loginbutton";
+import LoginDivider from "../../components/login/Logindivider";
+import SocialLoginButton from "../../components/login/Socialloginbutton";
 
 export default function Login() {
   const navigate = useNavigate();
