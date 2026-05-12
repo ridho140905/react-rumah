@@ -1,33 +1,38 @@
 @import "tailwindcss";
+
+/* 1. Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap');
 
-body {
-    /* Pakai Poppins atau Barlow, sesuaikan selera. Saya set default ke font-sans bawaan atau Barlow */
-    @apply font-barlow text-gray-800 bg-latar; 
+@theme {
+    /* 2. Definisi Font Family (Pastikan tidak ada referensi ke file lokal) */
+    --font-barlow: "Barlow", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+    --font-cairo: "Cairo", sans-serif;
+
+    /* 3. Konfigurasi Warna Furni House */
+    --color-latar: #f8f9fc;
+    --color-teks: #1f2937;
+    --color-teks-samping: #6b7280;
+    --color-garis: #f3f4f6;
+    
+    /* Warna Utama & Aksen */
+    --color-ungu: #9333ea;
+    --color-ungu-muda: #f3e8ff;
+    --color-oranye: #fb923c;
+    
+    /* Warna Status */
+    --color-hijau: #22c55e;
+    --color-merah: #ef4444;
+    --color-biru: #3b82f6;
+    --color-kuning: #eab308;
 }
 
-
-/* Font-face lokal dihapus, gunakan Google Fonts di atas */
-
-@theme {
-    /* Gunakan CSS Custom Properties diawali dengan '--' */
-    --font-barlow: "Barlow", sans-serif;
-    --font-poppins: "Poppins", sans-serif;            
-
-    /* Konfigurasi Warna Furni House */
-    --color-latar: #f8f9fc;        /* Background abu-abu kebiruan super terang khas dashboard modern */
-    --color-teks: #1f2937;         /* Warna teks utama (gray-800) */
-    --color-teks-samping: #6b7280; /* Warna teks sekunder/subtitle (gray-500) */
-    --color-garis: #f3f4f6;        /* Warna border tipis (gray-100) */
-    
-    /* Warna Utama & Aksen Baru */
-    --color-ungu: #9333ea;         /* Pengganti hijau, ungu utama (purple-600) */
-    --color-ungu-muda: #f3e8ff;    /* Background tipis ungu (purple-100) */
-    --color-oranye: #fb923c;       /* Warna aksen logo & icon chart (orange-400) */
-    
-    /* Warna Status (Tetap disimpan untuk label Available/Sold Out/dll) */
-    --color-hijau: #22c55e;        
-    --color-merah: #ef4444;        
-    --color-biru: #3b82f6;         
-    --color-kuning: #eab308;       
+/* 4. Base Styles */
+@layer base {
+    body {
+        /* Menggunakan variabel yang sudah didefinisikan di @theme */
+        font-family: var(--font-barlow);
+        color: var(--color-teks);
+        background-color: var(--color-latar);
+    }
 }
